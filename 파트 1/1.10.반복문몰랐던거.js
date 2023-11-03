@@ -1,5 +1,5 @@
 //? ‘?’ 오른쪽엔 break나 continue가 올 수 없습니다.
-(i > 5) ? alert(i) : continue; //# 여기에 continue를 사용하면 안 됩니다.
+// (i > 5) ? alert(i) : continue; //# 여기에 continue를 사용하면 안 됩니다.
 
 
 //? 레이블
@@ -27,5 +27,5 @@ outer: for (let i = 0; i < 3; i++) {
   alert('완료!');
 
 //? 레이블은 마음대로 '점프’할 수 있게 해주지 않습니다.
-break label; //# 아래 for 문으로 점프할 수 없습니다.
-label: for (...)
+// break label; //# 아래 for 문으로 점프할 수 없습니다.
+// label: for (...)
