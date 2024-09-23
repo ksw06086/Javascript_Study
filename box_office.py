@@ -3,7 +3,7 @@ import mysql.connector
 from mysql.connector import Error
 from pprint import pprint
 from datetime import datetime, timedelta
-import env
+import movie_top_ten_crawler.env as env
 
 yesterday = datetime.now() - timedelta(days=1)
 formatted_yesterday = yesterday.strftime('%Y%m%d')    
@@ -40,6 +40,7 @@ def insert_data_to_mysql(db_config, data):
 def main():
     api_url = f"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=827c670f8f542206ff408e07ea616ebb&targetDt={formatted_yesterday}"
     data = fetch_box_office_data(api_url)
+    pprint(data.get('boxOfficeResult').get('dailyBoxOfficeList'))
 
     if data:
         db_config = {
@@ -48,7 +49,7 @@ def main():
             'password': env.PASSWORD,
             'database': env.DATABASE
         }
-        insert_data_to_mysql(db_config, data)
+        # insert_data_to_mysql(db_config, data)
 
 if __name__ == '__main__':
     main()

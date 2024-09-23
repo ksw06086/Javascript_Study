@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "https": "^1.0.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "puppeteer": "^22.13.1",
+    "uuid": "^10.0.0"
   }
 }

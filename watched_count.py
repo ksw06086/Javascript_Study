@@ -4,7 +4,7 @@ import mysql.connector
 from mysql.connector import Error
 from pprint import pprint
 from datetime import datetime, timedelta
-import env
+import movie_top_ten_crawler.env as env
 
 yesterday = datetime.now() - timedelta(days=1)
 formatted_yesterday = yesterday.strftime('%Y%m%d')    
@@ -14,15 +14,20 @@ def fetch_box_office_data(api_url, search_movie, search_date):
     #* 1 : 순위 / 2 : 영화명(select('span')[0] - 제목, select('span')[1] - 증감) / 3 : 개봉일 / 4 : 매출액 / 5 : 매출액점유율 / 6 : 매출액증감(전일대비) / 
     #* 7 : 누적매출액 / 8 : 관객수 / 9 : 관객수증감(전일대비) / 10 : 누적관객수 / 11 : 스크린 수 / 12 : 상영횟수
     data = {
+        'CSRToken' : 'fPrwiqvm7EXGb-NiYLbIukXnLntZrhFxHaTcAQTx6W8',
         'loadEnd' : '0',
         'searchType' : 'search',
         'sSearchFrom': search_date, 
-        'sSearchTo' : search_date
+        'sSearchTo' : search_date,
+        'sMultiMovieYn': '',
+        'sRepNationCd': '',
+        'sWideAreaCd': ''
     }
     response = requests.post(api_url, data=data)
     soup = BeautifulSoup(response.content, "html.parser")
     trs = soup.select('table tbody tr')
     insert_data = {}
+    pprint(trs)
     for tr in trs:
         if search_movie.replace(' ', '') in tr.select('td:nth-child(2) span')[0].getText().replace(' ','').strip():
             insert_data['title'] = search_movie
@@ -53,8 +58,7 @@ def insert_data_to_mysql(db_config, data):
 # 메인 함수
 def main():
     api_url = f"https://www.kobis.or.kr/kobis/business/stat/boxs/findDailyBoxOfficeList.do"
-    data = fetch_box_office_data(api_url, '서울의 봄', '2023-11-20')
-    pprint(data)
+    data = fetch_box_office_data(api_url, '인사이드 아웃 2', '2024-07-14')
 
     if data:
         db_config = {

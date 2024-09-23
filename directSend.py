@@ -1,6 +1,6 @@
 import requests
 import json
-import env
+import movie_top_ten_crawler.env as env
 from pprint import pprint
 from datetime import datetime, timedelta
 

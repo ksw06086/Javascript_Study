@@ -1,0 +1,30 @@
+{
+   "author": "joyfuI",
+   "browser_specific_settings": {
+      "gecko": {
+         "id": "{eb187956-fd49-491d-b028-563805a05b16}"
+      }
+   },
+   "declarative_net_request": {
+      "rule_resources": [ {
+         "enabled": true,
+         "id": "ruleset",
+         "path": "rules.json"
+      } ]
+   },
+   "description": "네이버 카페 게시글 중 검색 허용되었으나 멤버 공개인 글을 카페 가입 없이 바로 볼 수 있게 해줍니다.",
+   "homepage_url": "https://github.com/joyfuI/NaverCafePass",
+   "host_permissions": [ "*://cafe.naver.com/*", "*://m.cafe.naver.com/*", "*://cafe.daum.net/*", "*://m.cafe.daum.net/*" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "96": "icons/icon96.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk8ThsfqtruA3nWWc2eqh8FRZKrDXOw91gzCb6KYRUuWmc5WSjaOnLrFl2ItBpR40t49j1llMfiTeNNPp3Q20B8Sc4GGiMUxPj4pHv4XjEcgNSf7oRdKaRgnbI+vLHGRt1J/Q+ffdiA09feAQLDzMUzLbBMOF3hpkd09mV2Dak9m2Sp1KlY/zr17bERDhgOF3mSuqTCrIEfOrlBcpS6DO5uVUDyJ89DIe/7MDy+8SBVSsrP4SGLKsmpQT1GlP5cLeiJfXavs9cqFdQTVyv58Yj2uv2Vwu3ul8Wk8Xgz8NSln7tqvt2QgpTxmzqINIgUI8JXgCrZnW2kl5btEhYcrVgQIDAQAB",
+   "manifest_version": 3,
+   "name": "네이버 카페 패스",
+   "permissions": [ "declarativeNetRequest", "declarativeNetRequestWithHostAccess" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.0"
+}
